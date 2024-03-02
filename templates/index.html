@@ -44,28 +44,36 @@ index
         <section class="container m-3">
             <div class="input-group mb-3">
                 <input type="file" class="form-control" id="img" name="img">
-                <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                <!-- <label class="input-group-text" id="submitBtn" value="Upload">Upload</label> -->
+                <button type="submit" class="btn btn-light" id="submitBtn" value="Upload">Upload</button>
             </div>
-            <button type="submit" class="btn btn-light" id="submitBtn" value="Upload">Light</button>
         </section>
     </form>
-    <table>
 
-        {{data_display}}
-        
-        {% for i in data_display %}
-        <tr>
-            <td>{{i['invoice_no']}}</td>
-            <td>{{i['name of seller']}}</td>
-            <td>{{i['cgst_amount']}}</td>
-            <td>{{i['sgst_amount']}}</td>
-            <td>{{i['bill_amount']}}</td>
-            <td>{{i['date']}}</td>
-            <td>{{i['category of expense from']}}</td>
-        </tr>
-        {% endfor %}
-        
-        
-    </table>
-
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Invoice Id</th>
+            <th scope="col">Seller</th>
+            <th scope="col">CGST</th>
+            <th scope="col">SGST</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Date</th>
+            <th scope="col">Category</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for i in data_display %}
+            <tr>
+                <td>{{i['invoice_no']}}</td>
+                <td>{{i['name of seller']}}</td>
+                <td>{{i['cgst_amount']}}</td>
+                <td>{{i['sgst_amount']}}</td>
+                <td>{{i['bill_amount']}}</td>
+                <td>{{i['date']}}</td>
+                <td>{{i['category of expense from']}}</td>
+            </tr>
+            {% endfor %}
+                </tbody>
+      </table>
 {% endblock %} 
