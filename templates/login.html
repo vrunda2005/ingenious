@@ -8,19 +8,22 @@ login
 
 <body>
 	<div class="container-fluid d-flex justify-content-center align-items-center p-5">
-		<div class="screen">
+		{% if message %}
+		<p>{{ message }}</p>
+		{% endif %}
+				<div class="screen">
 			<div class="screen__content">
-				<form class="login">
+				<form class="login" action="login" method="post">
 					<h1 class="login-title">Finance Management</h1>
 					<div class="login__field">
 						<i class="login__icon fas fa-user"></i>
-						<input type="text" class="login__input" placeholder="User name / Email">
+						<input class="login__input" type="text" id="username" name="username" placeholder="User name / Email">
 					</div>
 					<div class="login__field">
 						<i class="login__icon fas fa-lock"></i>
-						<input type="password" class="login__input" placeholder="Password">
+						<input class="login__input" type="password" id="password" name="password" placeholder="Password">
 					</div>
-					<button class="button login__submit">
+					<button class="button login__submit" type="submit" value="Login">
 						<span class="button__text">Log In Now</span>
 						<i class="button__icon fas fa-chevron-right"></i>
 					</button>
