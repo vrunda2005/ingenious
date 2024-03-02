@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, send_file
 import google.generativeai as genai
-import requests
 from io import BytesIO
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter
@@ -33,23 +32,10 @@ def dataMaker(activeUser, img):
 def dataDisplay(activeUser):
     global data
     if data[activeUser]:
-        # temp = f"<tr><td> {data[activeUser][0]['invoice_no']} </td><td>Francisco Chang</td><td>Mexico</td></tr>"
         return data[activeUser]
     else:
-        return "help"
-    # buffer = BytesIO()
-    # p = canvas.Canvas(buffer)
-    # p.drawString(100, 750, "Expense Report")
-    # y = 700
-    # for i in user_data:
-    #     p.drawString(100, y, f"Invoice No: {i['invoice_no']}")
-    #     p.drawString(100, y - 20, f"Author: {i['name of seller']}")
-    #     p.drawString(100, y - 40, f"Year: {i['date']}")
-    #     y -= 60
-    # p.showPage()
-    # p.save() 
-    # buffer.seek(0)
-    # return buffer
+        return []
+
 def generate_pdf_file(user_data):
     doc = SimpleDocTemplate("table.pdf", pagesize=letter)
     elements = []
@@ -79,10 +65,11 @@ def index():
     if request.method == 'POST':
         print('post',activeUser)
         if 'img' in request.files:
-            img_file = request.files['img']
-            img_bytes = img_file.read()
-            img = Image.open(BytesIO(img_bytes))
-            dataMaker(activeUser, img)
+            img_file = request.files.getlist('img')
+            for i in img_file:
+                img_bytes = i.read()
+                img = Image.open(BytesIO(img_bytes))
+                dataMaker(activeUser, img)
         else:    
             pdf_file = generate_pdf_file(data[activeUser])
             return send_file(pdf_file, as_attachment=True, download_name='report.pdf')            
