@@ -4,12 +4,28 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;	
-	font-family: 'Dosis', sans-serif;
+	/* 1  font */
+	/* font-family: 'Rubik Bubbles', cursive; */
+
+	/* 2 */
+	/* font-family: "Roboto", sans-serif;
+	font-weight: 500;
+	font-style: normal; */
+
+	/* 3 font  */
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+	font-style: italic;
 }
 
-h1 {
-	font-family: 'Verdana', sans-serif;
-}
+.roboto-regular-italic {
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+	font-style: italic;
+
+  }
+
+
 
 body {
 	background: linear-gradient(90deg, #8676a5, #6f42c1);		
