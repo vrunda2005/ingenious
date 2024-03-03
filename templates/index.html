@@ -62,20 +62,38 @@ index
             </thead>
             <tbody>
                 {% if data_display %}
-                {% for i in data_display %}
-                <tr>
-                    <td>{{i['invoice_no']}}</td>
-                    <td>{{i['name of seller']}}</td>
-                    <td>{{i['cgst_amount']}}</td>
-                    <td>{{i['sgst_amount']}}</td>
-                    <td>{{i['bill_amount']}}</td>
-                    <td>{{i['date']}}</td>
-                    <td>{{i['category of expense from']}}</td>
-                </tr>
-                {% endfor %}
+                    {% for i in data_display %}
+                    <tr>
+                        <td>{{i['invoice_no']}}</td>
+                        <td>{{i['name of seller']}}</td>
+                        <td>{{i['cgst_amount']}}</td>
+                        <td>{{i['sgst_amount']}}</td>
+                        <td>{{i['bill_amount']}}</td>
+                        <td>{{i['date']}}</td>
+                        <td>{{i['category of expense from']}}</td>
+                    </tr>
+                    {% endfor %}
                 {% endif%}
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td> Total SGST: {{total_sgst}}</td>
+                    <td> Total CGST: {{total_cgst}}</td>
+                    <td> Total CGST: {{total_amount}}</td>
+                  
+                </tr>
+
+              
+    
+          
+              
+            
             </tbody>
+            
         </table>
+
+       
 
         <form action="/" method="POST" enctype="multipart/form-data">
             <section class="container m-3">
