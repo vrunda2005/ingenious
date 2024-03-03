@@ -1,72 +1,91 @@
 {% extends "layout.html" %}
 
 {% block title %}
-index 
+index
 {%endblock %}
 
 {% block body %}
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">LOGO</a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                    </li>
-                </ul>
-            </div>
+<nav class="navbar navbar-expand-lg border-bottom">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <!-- <section class="container m-3">
-        <div class="input-group mb-3">
-            <input type="file" class="form-control" id="img" name="img">
-            <label class="input-group-text" for="inputGroupFile02">Upload</label>
+<section id="title">
+    <div class="container align-items-center text-center justify-content-center">
+        <div class="p-5">
+            <p class='h1'>
+                Expense Tracker
+            </p>
         </div>
-        <button type="submit" class="btn btn-light" id="submitBtn" name="submit" value="submit">Light</button>
-    </section> -->
 
-    <form action="/" method="POST" enctype="multipart/form-data">
-        <section class="container m-3">
-            <div class="input-group mb-3">
-                <input type="file" class="form-control" id="img" name="img">
-                <label class="input-group-text" for="inputGroupFile02">Upload</label>
-            </div>
-            <button type="submit" class="btn btn-light" id="submitBtn" value="Upload">Light</button>
-        </section>
-    </form>
-    <table>
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <section class="img-inp">
+                <div class="input-group mb-3">
+                    <input type="file" class="form-control" id="img" name="img" multiple>
+                    <button type="submit" class="btn btn-light" id="submitBtn" value="Upload">Upload</button>
+                </div>
+            </section>
+        </form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Invoice Id</th>
+                    <th scope="col">Seller</th>
+                    <th scope="col">CGST</th>
+                    <th scope="col">SGST</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Category</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if data_display %}
+                {% for i in data_display %}
+                <tr>
+                    <td>{{i['invoice_no']}}</td>
+                    <td>{{i['name of seller']}}</td>
+                    <td>{{i['cgst_amount']}}</td>
+                    <td>{{i['sgst_amount']}}</td>
+                    <td>{{i['bill_amount']}}</td>
+                    <td>{{i['date']}}</td>
+                    <td>{{i['category of expense from']}}</td>
+                </tr>
+                {% endfor %}
+                {% endif%}
+            </tbody>
+        </table>
 
-        {{data_display}}
-        
-        {% for i in data_display %}
-        <tr>
-            <td>{{i['invoice_no']}}</td>
-            <td>{{i['name of seller']}}</td>
-            <td>{{i['cgst_amount']}}</td>
-            <td>{{i['sgst_amount']}}</td>
-            <td>{{i['bill_amount']}}</td>
-            <td>{{i['date']}}</td>
-            <td>{{i['category of expense from']}}</td>
-        </tr>
-        {% endfor %}
-        
-        
-    </table>
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <section class="container m-3">
+                <div class="input-group mb-3">
+                    <button class="btn btn-light" class="nav-link" id="pdf" value="pdf">Export Pdf</button>
+                </div>
+            </section>
+    </div>
+</section>
+</form>
 
-{% endblock %} 
+
+{% endblock %}
