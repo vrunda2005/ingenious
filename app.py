@@ -131,6 +131,7 @@ def login():
         activeUser = username
         return redirect(url_for('index'))
     else:
+        
         return render_template('login.html', message='Invalid username or password')
 
 @app.route("/login")
