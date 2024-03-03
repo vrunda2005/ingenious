@@ -7,13 +7,10 @@ login
 {% block body %}
 
 <body>
-	{% if message %}
-    <div class="alert alert-warning">
-        {{ message }}
-    </div>
-    {% endif %}
 	<div class="container-fluid d-flex justify-content-center align-items-center p-5">
-		
+		{% if message %}
+		<p>{{ message }}</p>
+		{% endif %}
 				<div class="screen">
 			<div class="screen__content">
 				<form class="login" action="login" method="post">
@@ -26,23 +23,8 @@ login
 						<i class="login__icon fas fa-lock"></i>
 						<input class="login__input" type="password" id="password" name="password" placeholder="Password">
 					</div>
-					<a href="">Forgot password ?</a>
-
 					<button class="button login__submit" type="submit" value="Login">
 						<span class="button__text">Log In Now</span>
-						<i class="button__icon fas fa-chevron-right"></i>
-					</button>
-
-					<div class="d-flex justify-content-center text-center mt-4 pt-1">
-						<a href="#!" class="text-white">Or sign up using  </a>
-						<a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
-						<a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
-						<a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
-					  </div>
-
-					<button class="button login__submit" type="submit" value="Login">
-						Don't have account ?
-						<span class="button__text">Sign Up Now</span>
 						<i class="button__icon fas fa-chevron-right"></i>
 					</button>
 				
