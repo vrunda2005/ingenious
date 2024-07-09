@@ -3,8 +3,5 @@ Flask
 google-auth  # Latest stable version will be installed
 google-auth-oauthlib  # Latest compatible version will be installed
 google-generativeai  # Replace with the actual package name and its latest version (see note below)
-# Removed version specifications for dependencies
-reportlab-pdfbase
-reportlab-pdfmetrics
 Pillow==9.5.0  # Latest stable version
 reportlab
