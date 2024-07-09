@@ -20,7 +20,6 @@ activeUser = ""
 
 def dataMaker(activeUser, img):
     global data
-    print('datamaker',activeUser)
     genai.configure(api_key='AIzaSyB70mqc6NZs6WyBZKP4IRZIKjnX-yulJGc')
     model = genai.GenerativeModel('gemini-pro-vision')
     
