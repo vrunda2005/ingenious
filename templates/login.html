@@ -7,13 +7,10 @@ login
 {% block body %}
 
 <body>
-	{% if message %}
-    <div class="alert alert-warning">
-        {{ message }}
-    </div>
-    {% endif %}
 	<div class="container-fluid d-flex justify-content-center align-items-center p-5">
-		
+		{% if message %}
+		<p>{{ message }}</p>
+		{% endif %}
 				<div class="screen">
 			<div class="screen__content">
 				<form class="login" action="login" method="post">
@@ -26,14 +23,11 @@ login
 						<i class="login__icon fas fa-lock"></i>
 						<input class="login__input" type="password" id="password" name="password" placeholder="Password">
 					</div>
-
 					<button class="button login__submit" type="submit" value="Login">
 						<span class="button__text">Log In Now</span>
 						<i class="button__icon fas fa-chevron-right"></i>
 					</button>
-
 				
-
 			</div>
 			<div class="screen__background">
 				<span class="screen__background__shape screen__background__shape4"></span>
