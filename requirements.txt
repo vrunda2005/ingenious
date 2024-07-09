@@ -1,0 +1,8 @@
+Flask==3.0.3
+Flask
+google-auth  # Assuming you'll be using Google Cloud for generative AI
+google-auth-oauthlib  # Might be required for authentication
+generative-ai  # Assuming this is the actual package name for generative AI
+io
+reportlab
+Pillow
