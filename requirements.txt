@@ -1,5 +1,5 @@
-Flask  # Latest stable version will be installed
-# Assuming you'll be using Google Cloud for generative AI
+Flask
+# Werkzeug==2.2.2
 google-auth  # Latest stable version will be installed
 google-auth-oauthlib  # Latest compatible version will be installed
 google-generativeai  # Replace with the actual package name and its latest version (see note below)
