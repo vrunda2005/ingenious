@@ -20,8 +20,8 @@ activeUser = ""
 
 def dataMaker(activeUser, img):
     global data
-    genai.configure(api_key='AIzaSyB70mqc6NZs6WyBZKP4IRZIKjnX-yulJGc')
-    model = genai.GenerativeModel('gemini-pro-vision')
+    genai.configure(api_key='AIzaSyAM9AcsrTfB5z_5W2nFXxkwC5jAFi1k1v0')
+    model = genai.GenerativeModel('gemini-1.5-pro')
     
     response = model.generate_content(["You need to fetch the data from this image. Respond back in JSON string format without triple quotes and json keyword. These should be the keys of the data in JSON [invoice_no, name of seller, cgst_amount, sgst_amount, bill_amount, date, category of expense from:(Personal, Entertainment, Medical, Household, Leisure, Education, Others); write NA for data not available]", img])
     d = json.loads(response.text)
