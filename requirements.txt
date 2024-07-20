@@ -5,3 +5,4 @@ google-auth-oauthlib  # Latest compatible version will be installed
 google-generativeai  # Replace with the actual package name and its latest version (see note below)
 Pillow==9.5.0  # Latest stable version
 reportlab
+gunicorn
