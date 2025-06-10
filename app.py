@@ -11,7 +11,9 @@ from PIL import Image
 app = Flask(__name__)
 
 # Environment Variables
-API_KEY = os.getenv('GENAI_API_KEY')
+API_KEY = os.getenv("GENAI_API_KEY")
+if not API_KEY:
+    raise ValueError("Missing GENAI_API_KEY")
 
 # User Data
 users = {'vrunda': '123', 'jayraj': '456'}
